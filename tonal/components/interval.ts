@@ -1,5 +1,5 @@
 export class Interval {
-    static readonly validIntervalStings = {
+    static readonly validIntervalStrings = {
         ["P1"]: [0, 0],
         ["m2"]: [1, 1], ["A1"]: [1, 0],
         ["M2"]: [2, 1], ["d3"]: [2, 2],
@@ -20,16 +20,35 @@ export class Interval {
     readonly string: string;
     autoSimplify: boolean;
 
-    constructor(intervalString: string, autoSimplify: boolean = false) {
+
+    constructor(semitoneSteps: number, ordinalSteps: number, autoSimplify: boolean);
+    constructor(intervalString: string, autoSimplify: boolean);
+    constructor(param1: any, param2: any, param3?: any) {
+
         if (!Interval.isValid(intervalString)) {
             throw "Interval is not valid";
         }
         this.string = intervalString;
-        this.semitoneSteps = Interval.validIntervalStings[this.string][0];
-        this.ordinalSteps = Interval.validIntervalStings[this.string][1];
+        this.semitoneSteps = Interval.validIntervalStrings[this.string][0];
+        this.ordinalSteps = Interval.validIntervalStrings[this.string][1];
     }
 
-    static isValid(intervalString: string) {
-        return intervalString in Interval.validIntervalStings;
+
+    static isValid(intervalString: number);
+    static isValid(semitoneSteps: number, ordinalSteps: number);
+    static isValid(param1: any, param2?: any) {
+        return intervalString in Interval.validIntervalStrings;
+
+        if (typeof param1 === "number") {
+            return [-2, -1, 0, 1, 2].indexOf(accidental) > -1;
+        } else if (typeof accidental === "string") {
+            return ["♭♭", "♭", "", "♯", "♯♯"].indexOf(accidental) > -1;
+        } else {
+            return false;
+        }
+    }
+
+    static defineInterval(intervalString: string, semitoneSteps: number, ordinalSteps: number) {
+        
     }
 }
