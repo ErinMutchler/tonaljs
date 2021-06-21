@@ -10,6 +10,7 @@ export class NoteLetter {
      * are always modular so they will always remain in the range 0-6 (inclusive).
      */
     readonly ordinal: number;
+
     /**
      * value is the numerical value of a NoteLetter with respect to all other Notes. Unlike
      * ordinal, value takes half steps into account. For example, C's value remains 0 but D's value
@@ -55,7 +56,7 @@ export class NoteLetter {
 
     /**
      * Checks to see if a given string is a valid letter for constructing a new NoteLetter.
-     * @param letter The letter the check validity of.
+     * @param letter The letter to check the validity of.
      *
      * @returns boolean true if given letter is a valid letter for constructing a new NoteLetter.
      */
