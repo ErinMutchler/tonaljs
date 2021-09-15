@@ -1,6 +1,6 @@
-import {Interval} from "./interval";
-import {Accidental} from "./accidental";
-import {NoteLetter} from "./noteLetter";
+import {Interval} from "./components/interval";
+import {Accidental} from "./components/accidental";
+import {NoteLetter} from "./components/noteLetter";
 
 export class NoteClass {
     /**

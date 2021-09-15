@@ -1,47 +1,33 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Accidental = void 0;
+var symbols_1 = require("./symbols");
 var Accidental = /** @class */ (function () {
-    /**
-     * Constructs a new Accidental with a given string.
-     * @param accidental
-     */
-    function Accidental(accidentalString) {
-        Accidental.validate(accidentalString);
-        this.string = accidentalString;
-        this.value = Accidental.stringToValue(this.string);
+    function Accidental(accidentalSymbol) {
+        Accidental.validate(accidentalSymbol);
+        this.symbol = accidentalSymbol;
+        this.value = Accidental.symbolToValue(this.symbol);
     }
-    /**
-     * Checks to see if a given string is valid for constructing a new Accidental.
-     * @param accidentalString The string to check the validity of.
-     *
-     * @returns boolean true if given string is a valid string for constructing a new Accidental.
-     */
-    Accidental.validate = function (accidentalString) {
-        if (["♭♭", "♭", "", "♯", "♯♯"].indexOf(accidentalString) > -1) {
+    Accidental.validate = function (accidentalSymbol) {
+        if ([symbols_1.symbols.double_flat, symbols_1.symbols.flat, symbols_1.symbols.natural, symbols_1.symbols.sharp, symbols_1.symbols.double_sharp].indexOf(accidentalSymbol) > -1) {
             return true;
         }
         else {
             throw "Accidental is not valid";
         }
     };
-    /**
-     * Converts a valid string into its corresponding value.
-     * @param string The string to convert into its corresponding value.
-     *
-     * @returns number The corresponding value of the given string.
-     */
-    Accidental.stringToValue = function (string) {
+    Accidental.symbolToValue = function (symbol) {
         var _a;
-        return (_a = {}, _a["bb"] = -2, _a["b"] = -1, _a[""] = 0, _a["#"] = 1, _a["##"] = 2, _a)[string];
+        return (_a = {},
+            _a[symbols_1.symbols.double_flat] = -2,
+            _a[symbols_1.symbols.flat] = -1,
+            _a[symbols_1.symbols.natural] = 0,
+            _a[symbols_1.symbols.sharp] = 1,
+            _a[symbols_1.symbols.double_sharp] = 2,
+            _a)[symbol];
     };
-    /**
-     * Converts a valid value into its corresponding string.
-     * @param value The value to convert into its corresponding string.
-     *
-     * @returns number The corresponding string for the given value.
-     */
-    Accidental.valueToString = function (value) {
-        return ["bb", "b", "", "#", "##"][value + 2];
+    Accidental.valueToSymbol = function (value) {
+        return [symbols_1.symbols.double_flat, symbols_1.symbols.flat, symbols_1.symbols.natural, symbols_1.symbols.sharp, symbols_1.symbols.double_sharp][value + 2];
     };
     return Accidental;
 }());

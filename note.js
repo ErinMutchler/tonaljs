@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Note = void 0;
 var noteClass_1 = require("./noteClass");
 var Note = /** @class */ (function () {
     function Note(noteString, octave) {

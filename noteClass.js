@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var accidental_1 = require("./accidental");
-var noteLetter_1 = require("./noteLetter");
+exports.NoteClass = void 0;
+var accidental_1 = require("./components/accidental");
+var noteLetter_1 = require("./components/noteLetter");
 var NoteClass = /** @class */ (function () {
     function NoteClass(noteClassString) {
         this.letter = new noteLetter_1.NoteLetter(noteClassString[0]);

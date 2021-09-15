@@ -1,57 +1,36 @@
-export class Accidental {
-    /**
-     * string is the string representation of an Accidental.
-     */
-    readonly string: string;
+import {symbols} from "./symbols";
 
-    /**
-     * value is the numerical value of an Accidental. It acts as a modifier for several note classes and follows the
-     * paradigm of doubleFlat=-2, flat=-1, natural=0, sharp=1, doubleSharp=2.
-     */
+export class Accidental {
+
+    readonly symbol: string;
     readonly value: number;
 
-    /**
-     * Constructs a new Accidental with a given string.
-     * @param accidental
-     */
-    constructor(accidentalString: string) {
-        Accidental.validate(accidentalString);
+    constructor(accidentalSymbol: string) {
+        Accidental.validate(accidentalSymbol);
 
-        this.string = accidentalString;
-        this.value = Accidental.stringToValue(this.string);
+        this.symbol = accidentalSymbol;
+        this.value = Accidental.symbolToValue(this.symbol);
     }
 
-    /**
-     * Checks to see if a given string is valid for constructing a new Accidental.
-     * @param accidentalString The string to check the validity of.
-     *
-     * @returns boolean true if given string is a valid string for constructing a new Accidental.
-     */
-    static validate(accidentalString: string) {
-        if (["♭♭", "♭", "", "♯", "♯♯"].indexOf(accidentalString) > -1) {
+    static validate(accidentalSymbol: string) {
+        if ([symbols.double_flat, symbols.flat, symbols.natural, symbols.sharp, symbols.double_sharp].indexOf(accidentalSymbol) > -1) {
             return true;
         } else {
             throw "Accidental is not valid";
         }
     }
 
-    /**
-     * Converts a valid string into its corresponding value.
-     * @param string The string to convert into its corresponding value.
-     *
-     * @returns number The corresponding value of the given string.
-     */
-    static stringToValue(string: string) {
-        return { ["bb"]: -2, ["b"]: -1, [""]: 0, ["#"]: 1, ["##"]: 2 }[string];
+    static symbolToValue(symbol: string) {
+        return {
+            [symbols.double_flat]: -2,
+            [symbols.flat]: -1,
+            [symbols.natural]: 0,
+            [symbols.sharp]: 1,
+            [symbols.double_sharp]: 2
+        } [symbol];
     }
 
-    /**
-     * Converts a valid value into its corresponding string.
-     * @param value The value to convert into its corresponding string.
-     *
-     * @returns number The corresponding string for the given value.
-     */
-    static valueToString(value: number) {
-        return ["bb", "b", "", "#", "##"][value + 2];
+    static valueToSymbol(value: number) {
+        return [symbols.double_flat, symbols.flat, symbols.natural, symbols.sharp, symbols.double_sharp][value + 2];
     }
 }
