@@ -1,12 +1,11 @@
 export class NoteLetter {
+
     readonly letter: string;
     readonly ordinal: number;
     readonly value: number;
 
     constructor(letter: string) {
-        if (["C", "D", "E", "F", "G", "A", "B"].indexOf(letter) === -1) {
-            throw "NoteLetter is not Valid";
-        }
+        NoteLetter.validate(letter);
 
         this.letter = letter;
         this.ordinal = NoteLetter.letterToOrdinal(this.letter);
@@ -21,8 +20,12 @@ export class NoteLetter {
         return this.addOrdinal(-ordinal);
     }
 
-    toString() {
-        return this.letter;
+    static validate(letter: string) {
+        if (["C", "D", "E", "F", "G", "A", "B"].indexOf(letter) > -1) {
+            return true;
+        } else {
+            throw "Note Letter is not Valid";
+        }
     }
 
     static letterToOrdinal(letter: string) {
@@ -37,4 +40,3 @@ export class NoteLetter {
         return String.fromCharCode(((ordinal + 2) % 7) + "A".charCodeAt(0));
     }
 }
-
