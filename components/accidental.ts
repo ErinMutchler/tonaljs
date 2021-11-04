@@ -11,6 +11,10 @@ export class Accidental {
         this.value = Accidental.symbolToValue(this.symbol);
     }
 
+    toString() {
+        return this.symbol;
+    }
+
     static symbolToValue(symbol: string) {
         return ACCIDENTAL_SYMBOLS.indexOf(symbol) - 2;
     }
