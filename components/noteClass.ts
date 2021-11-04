@@ -28,12 +28,9 @@ export class NoteClass {
     getDistanceFromNoteClass(noteClass) {
         const degree = this.noteLetter.ordinal - noteClass.noteLetter.ordinal + 1;
         const qualityValue = this.noteLetter.value - noteClass.noteLetter.value;
-        let quality = "";
-        if ([0, 3, 4].includes(degree)) {
-            quality = { "A": 1, "AA": 2, "AAA": 3, "d": -1, "dd": -2, "ddd": -3, "P": 0, }[qualityValue];
-        } else {
-            quality = { "A": 1, "AA": 2, "AAA": 3, "d": -2, "dd": -3, "ddd": -4, "m": -1, "M": 0, } [qualityValue];
-        }
+        const quality = Interval.isDegreeSymmetrical(degree) ?
+            { "A": 1, "AA": 2, "AAA": 3, "d": -1, "dd": -2, "ddd": -3, "P": 0, }[qualityValue]:
+            { "A": 1, "AA": 2, "AAA": 3, "d": -2, "dd": -3, "ddd": -4, "m": -1, "M": 0, } [qualityValue];
         return new Interval(quality, degree);
     }
 
@@ -49,7 +46,7 @@ export class NoteClass {
         return new Interval(quality, degree);
     }
 
-    simplify() {
-        //TODO: Implement
+    toString() {
+        return this.noteLetter.toString() + this.accidental.toString();
     }
 }
