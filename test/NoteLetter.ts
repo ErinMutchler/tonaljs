@@ -178,3 +178,259 @@ describe('NoteLetter Constructor (msp)', () => {
         });
     });
 });
+
+describe('NoteLetter addToOrdinal', () => {
+    it('should return a new NoteLetter with a msp of "C"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(0);
+        }).to.equal("C");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(1);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "E"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(2);
+        }).to.equal("E");
+    });
+
+    it('should return a new NoteLetter with a msp of "F"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(3);
+        }).to.equal("F");
+    });
+
+    it('should return a new NoteLetter with a msp of "G"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(4);
+        }).to.equal("G");
+    });
+
+    it('should return a new NoteLetter with a msp of "A"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(5);
+        }).to.equal("A");
+    });
+
+    it('should return a new NoteLetter with a msp of "B"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(6);
+        }).to.equal("B");
+    });
+
+    it('should return a new NoteLetter with a msp of "C"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(7);
+        }).to.equal("C");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(8);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "E"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(9);
+        }).to.equal("E");
+    });
+
+    it('should return a new NoteLetter with a msp of "F"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(10);
+        }).to.equal("F");
+    });
+
+    it('should return a new NoteLetter with a msp of "G"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(11);
+        }).to.equal("G");
+    });
+
+    it('should return a new NoteLetter with a msp of "A"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(12);
+        }).to.equal("A");
+    });
+
+    it('should return a new NoteLetter with a msp of "B"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(13);
+        }).to.equal("B");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("C").addToOrdinal(1);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("B").addToOrdinal(2);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("A").addToOrdinal(3);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("G").addToOrdinal(4);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("F").addToOrdinal(5);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("E").addToOrdinal(6);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("D").addToOrdinal(7);
+        }).to.equal("D");
+    });
+});
+
+describe('NoteLetter subtractFromOrdinal', () => {
+    it('should return a new NoteLetter with a msp of "C"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(0);
+        }).to.equal("C");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(1);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "E"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(2);
+        }).to.equal("E");
+    });
+
+    it('should return a new NoteLetter with a msp of "F"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(3);
+        }).to.equal("F");
+    });
+
+    it('should return a new NoteLetter with a msp of "G"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(4);
+        }).to.equal("G");
+    });
+
+    it('should return a new NoteLetter with a msp of "A"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(5);
+        }).to.equal("A");
+    });
+
+    it('should return a new NoteLetter with a msp of "B"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(6);
+        }).to.equal("B");
+    });
+
+    it('should return a new NoteLetter with a msp of "C"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(7);
+        }).to.equal("C");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(8);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "E"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(9);
+        }).to.equal("E");
+    });
+
+    it('should return a new NoteLetter with a msp of "F"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(10);
+        }).to.equal("F");
+    });
+
+    it('should return a new NoteLetter with a msp of "G"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(11);
+        }).to.equal("G");
+    });
+
+    it('should return a new NoteLetter with a msp of "A"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(12);
+        }).to.equal("A");
+    });
+
+    it('should return a new NoteLetter with a msp of "B"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(13);
+        }).to.equal("B");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("C").subtractFromOrdinal(1);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("B").subtractFromOrdinal(2);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("A").subtractFromOrdinal(3);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("G").subtractFromOrdinal(4);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("F").subtractFromOrdinal(5);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("E").subtractFromOrdinal(6);
+        }).to.equal("D");
+    });
+
+    it('should return a new NoteLetter with a msp of "D"', () => {
+        expect(() => {
+            return new NoteLetter("D").subtractFromOrdinal(7);
+        }).to.equal("D");
+    });
+});
