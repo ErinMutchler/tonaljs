@@ -3,10 +3,12 @@ export class NoteLetter {
      * msp stands for Music Syntax as Plaintext. Refer to the documentation for details on msp.
      */
     readonly msp: string;
+
     /***
      * ordinal is the numeric representation of a NoteLetter with a range from 0 to 6.
      */
     readonly ordinal: number;
+
     /***
      * value is the numeric representation of a NoteLetter with a range from 0 to 11. 
      * The spacing is based on semitone relationships between the white keys on a piano.
@@ -51,7 +53,7 @@ export class NoteLetter {
      * Returns a new NoteLetter whose ordinal is the sum of this NoteLetter's ordinal plus a given number.
      */
     addToOrdinal(n: number) {
-        return new NoteLetter(ordinalToMsp((((this.ordinal + n) % 7) + 7) % 7));
+        return new NoteLetter(NoteLetter.ordinalToMsp((((this.ordinal + n) % 7) + 7) % 7));
     }
 
     /***
@@ -68,7 +70,7 @@ export class NoteLetter {
         return this.msp;
     }
 
-    static private DICTIONARY = {
+    private static DICTIONARY = {
         msps: ["C", "D", "E", "F", "G", "A", "B"],
         ordinals: [0, 1, 2, 3, 4, 5, 6],
         values: [0, 2, 4, 5, 7, 9, 11],

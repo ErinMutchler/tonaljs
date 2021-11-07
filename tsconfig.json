@@ -6,6 +6,8 @@
     "lib": ["es6", "dom", "es2017"]
   },
   "exclude": [
-    "node_modules"
+    "./tests/",
+    "./node_modules/",
+    "./dist/"
   ]
 }

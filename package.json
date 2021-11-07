@@ -1,0 +1,30 @@
+{
+  "name": "tonaljs",
+  "version": "1.0.0",
+  "description": "open source library for representing musical objects in Typescript",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/*.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErinMutchler/tonaljs.git"
+  },
+  "author": "Erin Mutchler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErinMutchler/tonaljs/issues"
+  },
+  "homepage": "https://github.com/ErinMutchler/tonaljs#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.22",
+    "@types/mocha": "^9.0.0",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "prettier": "^2.4.1",
+    "ts-node": "^10.4.0"
+  }
+}

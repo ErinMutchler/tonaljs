@@ -9,7 +9,7 @@ var Accidental = /** @class */ (function () {
         this.value = Accidental.symbolToValue(this.symbol);
     }
     Accidental.validate = function (accidentalSymbol) {
-        if ([symbols_1.symbols.double_flat, symbols_1.symbols.flat, symbols_1.symbols.natural, symbols_1.symbols.sharp, symbols_1.symbols.double_sharp].indexOf(accidentalSymbol) > -1) {
+        if (Object.values(symbols_1.symbols.accidentals).indexOf(accidentalSymbol) > -1) {
             return true;
         }
         else {
@@ -17,17 +17,10 @@ var Accidental = /** @class */ (function () {
         }
     };
     Accidental.symbolToValue = function (symbol) {
-        var _a;
-        return (_a = {},
-            _a[symbols_1.symbols.double_flat] = -2,
-            _a[symbols_1.symbols.flat] = -1,
-            _a[symbols_1.symbols.natural] = 0,
-            _a[symbols_1.symbols.sharp] = 1,
-            _a[symbols_1.symbols.double_sharp] = 2,
-            _a)[symbol];
+        return Object.keys(symbols_1.symbols.accidentals).indexOf(symbol) - 2;
     };
     Accidental.valueToSymbol = function (value) {
-        return [symbols_1.symbols.double_flat, symbols_1.symbols.flat, symbols_1.symbols.natural, symbols_1.symbols.sharp, symbols_1.symbols.double_sharp][value + 2];
+        return Object.values(symbols_1.symbols.accidentals)[value + 2];
     };
     return Accidental;
 }());
