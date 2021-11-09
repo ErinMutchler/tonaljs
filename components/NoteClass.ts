@@ -1,7 +1,7 @@
 import {Util} from "./Util";
 import {Accidental} from "./Accidental";
 import {NoteLetter} from "./NoteLetter";
-import {Interval} from "../Older Version/components/interval";
+import {Interval} from "../components/interval";
 
 export class NoteClass {
     /***
@@ -32,7 +32,7 @@ export class NoteClass {
      * @param interval
      */
     addInterval(interval: Interval) {
-        const noteLetter = this.noteLetter.addToOrdinal(interval.degree - 1);
+        const noteLetter = this.noteLetter.addToOrdinal(interval.staffPositions);
         const accidental = new Accidental(Accidental.valueToMsp(interval.value - Util.mod(noteLetter.value - this.value, 12)));
         return new NoteClass(noteLetter.msp + accidental.msp);
     }
@@ -45,5 +45,12 @@ export class NoteClass {
         const noteLetter = this.noteLetter.subtractFromOrdinal(interval.degree - 1);
         const accidental = new Accidental(Accidental.valueToMsp(-1 * (interval.value - Util.mod(noteLetter.value - this.value, 12))));
         return new NoteClass(noteLetter.msp + accidental.msp);
+    }
+
+    /***
+     *
+     */
+    toString() {
+        return this.noteLetter.msp + this.accidental.msp;
     }
 }

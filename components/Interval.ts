@@ -16,6 +16,10 @@ export class Interval {
     /***
      *
      */
+    readonly staffPositions: number;
+    /***
+     *
+     */
     readonly value: number;
     /***
      *
@@ -34,24 +38,25 @@ export class Interval {
     constructor(msp: string) {
         this.quality = msp.split(/(?=\d)/)[0];
         this.degree = parseInt(msp.split(/(?=\d)/)[1]);
+        this.msp = msp;
 
-        if (!["m", "M", "P", "A", "AA", "AAA", "d", "dd", "ddd"].includes(this.quality)) {
+        if (!Interval.DICTIONARY.qualities.includes(this.quality)) {
             throw new Error("msp text is not valid");
         } else if (this.degree <= 0 || this.degree >= 36) {
             throw new Error("msp text is not valid");
-        } else if (Interval.qualityIsSymmetrical(this.quality) !== Interval.degreeIsSymmetrical(this.degree)) {
-            throw new Error("Interval symmetry is not valid");
+        } else if (!Interval.qualityIsSymmetrical(this.quality) && Interval.degreeIsSymmetrical(this.degree)) {
+            throw new Error('Interval symmetry is not valid');
         }
 
-        const staffPositions = this.degree - 1;
+        this.staffPositions = this.degree - 1;
         const staffPositionsPerOctave = 7;
         const semitonesPerOctave = 12;
 
-        this.compoundValue = Math.floor(staffPositions / staffPositionsPerOctave) * semitonesPerOctave;
+        this.compoundValue = Math.floor(this.staffPositions / staffPositionsPerOctave) * semitonesPerOctave;
         const qualityModifier = this.isSymmetrical() ?
             Interval.DICTIONARY.symmetricalQualityModifiers [this.quality] :
             Interval.DICTIONARY.nonSymmetricalQualityModifiers [this.quality];
-        this.simpleValue = Interval.DICTIONARY.semitones[Util.mod(staffPositions, 7)] + qualityModifier;
+        this.simpleValue = Interval.DICTIONARY.semitones[Util.mod(this.staffPositions, 7)] + qualityModifier;
         this.value = this.compoundValue + this.simpleValue;
     }
 
@@ -75,11 +80,11 @@ export class Interval {
      * @param degree
      */
     static degreeIsSymmetrical(degree: number) {
-        return [0, 3, 4].includes(Util.mod(degree, 7));
+        return [0, 3, 4].includes(Util.mod(degree - 1, 7));
     }
 
     /***
-     * 
+     *
      * @private
      */
     private isSymmetrical() {
@@ -87,6 +92,7 @@ export class Interval {
     }
 
     private static DICTIONARY = {
+        qualities: ["m", "M", "P", "A", "AA", "AAA", "d", "dd", "ddd"],
         semitones: [0, 2, 4, 5, 7, 9, 11],
         symmetricalQualityModifiers: { "A": 1, "AA": 2, "AAA": 3, "d": -1, "dd": -2, "ddd": -3, "P": 0, },
         nonSymmetricalQualityModifiers: { "A": 1, "AA": 2, "AAA": 3, "d": -2, "dd": -3, "ddd": -4, "m": -1, "M": 0, },
