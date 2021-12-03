@@ -1,80 +1,44 @@
 # tonaljs
 
-tonaljs is a open source library built to represent musical objects in Typescript.
+tonaljs is a Typescript library for representing musical objects and concepts.
 
-## Classes
+## Installation
 
-### NoteLetter
-Properties:
- - letter: string
- - ordinal: number
- - value: number
+Use the package manager [npm](https://www.npmjs.com/) to install tonaljs.
 
-Methods:
- - addOrdinal(ordinal: number)
- - subOrdinal(ordinal: number)
- - letterToOrdinal(letter: string)
- - ordinalToValue(ordinal: number)
- - ordinalToLetter(ordinal: number)
- - validate()
- - toString()
+```bash
+npm install tonaljs
+```
 
-### Accidental
-Properties:
- - symbol: string
- - value: number
+OR
 
-Methods:
- - symbolToValue(symbol: string)
- - valueToSymbol(value: number)
- - toString()
+Download tonaljs [here](https://tonaljs.io).
 
-### NoteClass
-Properties:
- - noteLetter: NoteLetter
- - accidental: Accidental
- - value: number
+## Usage
 
-Methods:
- - addInterval(interval: Interval)
- - subInterval(interval: Interval)
- - getDistanceFromNoteClass(noteClass: NoteClass)
- - getDistanceToNoteClass(noteClass: NoteClass)
- - simplify()
- - toString()
+For usage of specific tonaljs modules, see [here](https://todofixme).
 
-### Interval
-Properties:
- - quality: string
- - degree: number
- - value: number
+```javascript
+import {Note} from "./node_modules/tonaljs/components/Note.ts";
+import {Interval} from "./node_modules/tonaljs/components/ .ts";
 
-Methods:
- - toString()
-### Note
-Properties:
-Methods:
-### AbstractScale
-Properties:
-Methods:
-### AbstractChord
-Properties:
-Methods:
-### AbstractMode
-Properties:
-Methods:
-### AbstractChordScale
-Properties:
-Methods:
-### Scale
-Properties:
-Methods:
-### Chord
-Properties:
-Methods:
-### Mode
-Properties:
-Methods:
-### ChordScale
-Properties:
-Methods:
+let myNote = new Note("Db");
+let myInterval = new Interval("M3");
+
+// Outputs 'F'
+console.log(myNote.addInterval(myInterval).toString());
+```
+
+## Contributing
+Please refer to each project's style and contribution guidelines for submitting patches and additions. In general, we follow the "fork-and-pull" Git workflow.
+
+ 1. **Fork** the repo on GitHub
+ 2. **Clone** the project to your own machine
+ 3. **Commit** changes to your own branch
+ 4. **Push** your work back up to your fork
+ 5. Submit a **Pull request** so that we can review your changes
+
+NOTE: Be sure to merge the latest from "upstream" before making a pull request!
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
